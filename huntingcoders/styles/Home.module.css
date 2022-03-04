@@ -53,7 +53,7 @@
 .description {
   margin: 4rem 0;
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 14px;
 }
 
 .code {
@@ -113,4 +113,16 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.mainnav ul {
+  display: flex;
+  justify-content: center;
+}
+
+.mainnav ul li {
+  margin: 0 20px;
+  list-style: none;
+  font-size: 18px;
+  font-weight: bold;
 }
