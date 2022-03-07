@@ -13,6 +13,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Script src="/sc.js"></Script> */}
+
+      {/* This is componenet lavel css if i want to global css then write it in the head tag global */}
+      {/* <style jsx global>
+      {/* <style jsx global>
+        {`
+        
+        .dummy{
+          background-color: red;
+        }
+         
+        `}
+      </style> */}
        
        <nav className={styles.mainnav}>
           <ul>
@@ -32,20 +44,21 @@ export default function Home() {
         </p>
 
           <div className="blogs">
+            <h1>Populer Blogs</h1>
             <div className="blog">
-               <h1>How to learn javascript in 2022 ?</h1>
+               <h2>How to learn javascript in 2022 ?</h2>
                <p>javascript is the language to desgin logic for the web.</p>
             </div>
             <div className="blog">
-               <h1>How to learn javascript in 2022 ?</h1>
+               <h2>How to learn javascript in 2022 ?</h2>
                <p>javascript is the language to desgin logic for the web.</p>
             </div>
             <div className="blog">
-               <h1>How to learn javascript in 2022 ?</h1>
+               <h2>How to learn javascript in 2022 ?</h2>
                <p>javascript is the language to desgin logic for the web.</p>
             </div>
             <div className="blog">
-               <h1>How to learn javascript in 2022 ?</h1>
+               <h2>How to learn javascript in 2022 ?</h2>
                <p>javascript is the language to desgin logic for the web.</p>
             </div>
           </div>
