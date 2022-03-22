@@ -1,48 +1,31 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Blog.module.css";
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/blogs")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setBlogs(data);
+      });
+  }, []);
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={styles.blogs}>
-          <div className={styles.blog}>
-            <Link href={"/blogpost/how-to-learn-javascript"}>
-              <h2>How to learn javascript in 2022 ?</h2>
-            </Link>
-            <p>javascript is the language to desgin logic for the web.</p>
-          </div>
-          <div className={styles.blog}>
-            <Link href={"/blogpost/how-to-learn-javascript"}>
-              <h2>How to learn javascript in 2022 ?</h2>
-            </Link>
-            <p>javascript is the language to desgin logic for the web.</p>
-          </div>
-          <div className={styles.blog}>
-            <Link href={"/blogpost/how-to-learn-javascript"}>
-              <h2>How to learn javascript in 2022 ?</h2>
-            </Link>
-            <p>javascript is the language to desgin logic for the web.</p>
-          </div>
-          <div className={styles.blog}>
-            <Link href={"/blogpost/how-to-learn-javascript"}>
-              <h2>How to learn javascript in 2022 ?</h2>
-            </Link>
-            <p>javascript is the language to desgin logic for the web.</p>
-          </div>
-          <div className={styles.blog}>
-            <Link href={"/blogpost/how-to-learn-javascript"}>
-              <h2>How to learn javascript in 2022 ?</h2>
-            </Link>
-            <p>javascript is the language to desgin logic for the web.</p>
-          </div>
-          <div className={styles.blog}>
-            <Link href={"/blogpost/how-to-learn-javascript"}>
-              <h2>How to learn javascript in 2022 ?</h2>
-            </Link>
-            <p>javascript is the language to desgin logic for the web.</p>
-          </div>
+          {blogs.map((blog) => (
+            <div className={styles.blog} key={blog.title}>
+              <Link href={`/blogpost/${blog.slug}`}>
+                <h2>{blog.title}</h2>
+              </Link>
+              <p>{blog.description.substr(0, 30)}</p>
+            </div>
+          ))}
         </div>
       </main>
     </div>
