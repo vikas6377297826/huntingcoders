@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/Blogpost.module.css";
+import * as fs from "fs";
 
 const Slug = (props) => {
   const [blog, setBlog] = useState(props.blog);
@@ -29,16 +30,28 @@ const Slug = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticPaths(context) {
+  return {
+    paths: [
+      { params: { slug: "how-to-learn-java" } },
+      { params: { slug: "how-to-learn-javascript" } },
+      { params: { slug: "how-to-learn-python" } },
+    ],
+    fallback: true, // false or 'blocking'
+  };
+}
+
+export async function getStaticProps(context) {
   // console.log(context.query);
 
-  const slug = context.query.slug;
+  // const slug = context.query.slug;
+  const slug = context.params.slug;
 
-  const res = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`);
-  const data = await res.json();
+  const data = await fs.promises.readFile(`blogdata/${slug}.json`, "utf-8");
+
   return {
     props: {
-      blog: data,
+      blog: JSON.parse(data),
     },
   };
 }
