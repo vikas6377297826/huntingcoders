@@ -20,12 +20,19 @@ const Slug = (props) => {
   //       setBlog(data);
   //     });
   // }, [router.isReady]);
+  function createMarkup(dec) {
+    return { __html: dec };
+  }
 
   return (
     <div className={styles.container}>
       <h2>{blog && blog.title}</h2>
       <hr />
-      <p>{blog && blog.description}</p>
+      <p>
+        {blog && (
+          <div dangerouslySetInnerHTML={createMarkup(blog.description)}></div>
+        )}
+      </p>
     </div>
   );
 };

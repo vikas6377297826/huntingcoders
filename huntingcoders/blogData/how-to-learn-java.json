@@ -2,7 +2,7 @@
 
     "title" : "how to learn java",
     "author": "vikas patel",
-    "description": "This is a book about how to learn javascript in a very easy way and how to make it work in a very easy way as well.",
+    "description": "<h3>htmlFor<\/h3>\r\n\r\n<p>Since&nbsp;<code>for<\/code>&nbsp;is a reserved word in JavaScript, React elements use&nbsp;<code>htmlFor<\/code>&nbsp;instead.<\/p>\r\n\r\n<h3>onChange<\/h3>\r\n\r\n<p>The&nbsp;<code>onChange<\/code>&nbsp;event behaves as you would expect it to: whenever a form field is changed, this event is fired. We intentionally do not use the existing browser behavior because&nbsp;<code>onChange<\/code>&nbsp;is a misnomer for its behavior and React relies on this event to handle user input in real time.<\/p>\r\n\r\n<h3>&nbsp;<\/h3>\r\n",
     "slug": "how-to-learn-java"
   
 }
