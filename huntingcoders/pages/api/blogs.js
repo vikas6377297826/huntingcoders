@@ -2,6 +2,7 @@ import * as fs from "fs";
 
 export default async function handler(req, res) {
   const data = await fs.promises.readdir("blogdata");
+
   let myFile;
   let allBlogs = [];
   for (let i = 0; i < data.length; i++) {
