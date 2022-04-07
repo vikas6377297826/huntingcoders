@@ -19,7 +19,6 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-  position: absolute;
   bottom: 0;
   width: 100%;
 }
@@ -109,6 +108,10 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.mainnav {
+  border-bottom: 1px solid #eaeaea;
 }
 
 @media (max-width: 600px) {
