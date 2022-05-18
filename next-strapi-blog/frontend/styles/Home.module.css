@@ -121,3 +121,20 @@
     flex-direction: column;
   }
 }
+
+
+.formContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContainer form {
+  width: 50%;
+}
+
+.formControl{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

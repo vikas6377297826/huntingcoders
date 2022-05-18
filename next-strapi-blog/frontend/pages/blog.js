@@ -1,14 +1,18 @@
 import React from "react";
+import Articles from "../components/articles";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 
-const Home = ({ categories, homepage }) => {
+const Blog = ({ articles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
-      <div>
-        <h1>about us</h1>
+      <div className="uk-section">
+        <div className="uk-container uk-container-large">
+          <h1>{homepage.attributes.hero.title}</h1>
+          <Articles articles={articles} />
+        </div>
       </div>
     </Layout>
   );
@@ -16,7 +20,8 @@ const Home = ({ categories, homepage }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [categoriesRes, homepageRes] = await Promise.all([
+  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+    fetchAPI("/articles", { populate: ["image", "category"] }),
     fetchAPI("/categories", { populate: "*" }),
     fetchAPI("/homepage", {
       populate: {
@@ -28,6 +33,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      articles: articlesRes.data,
       categories: categoriesRes.data,
       homepage: homepageRes.data,
     },
@@ -35,4 +41,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
+export default Blog;
