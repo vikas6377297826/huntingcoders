@@ -10,7 +10,7 @@ const Nav = ({ categories }) => {
           <ul className="uk-navbar-nav">
             <li>
               <Link href="/">
-                <a>codeoflyf</a>
+                <a style={{ fontSize: 20 }}>codeoflyf</a>
               </Link>
             </li>
           </ul>

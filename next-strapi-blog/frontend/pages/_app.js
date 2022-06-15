@@ -4,6 +4,7 @@ import "../assets/css/style.css";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
+import ScrollToTop from "../components/scrollToTop";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -21,6 +22,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <Component {...pageProps} />
+        <ScrollToTop />
       </GlobalContext.Provider>
     </>
   );
