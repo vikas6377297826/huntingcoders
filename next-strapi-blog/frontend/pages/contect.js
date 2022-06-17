@@ -11,7 +11,11 @@ const contect = ({ categories }) => {
   const [phone, setPhone] = useState("")
 
 
+
+
+
   const handleSubmit = async () => {
+
     const response = await fetch("http://localhost:1337/api/contects", {
       method: "POST",
       headers: {

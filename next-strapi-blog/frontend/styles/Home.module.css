@@ -38,11 +38,22 @@
   animation-iteration-count: infinite;
 }
 
+
+.textContainer h3 .rotate{
+  color: red;
+}
+
 .containerItem{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.containerItem .item{
+  border: 1px solid red;
+  width: 20%;
+  margin: 10px;
 }
 
 .main {
@@ -200,10 +211,14 @@
 
 @keyframes fadeIn {
   0% {
+     /* transform: scaleX(0); */
      transform: rotateX(0deg);
+     /* opacity: 0; */
   }
   100% {
       transform: rotateX(360deg);
+      /* opacity: 1; */
+      /* transform: scaleX(1); */
 
   }
 }

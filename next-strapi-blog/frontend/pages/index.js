@@ -15,7 +15,10 @@ const Home = ({ categories, homepage }) => {
         <div className={`${styles.container} ${styles.homeContainer}`}>
           <div className={styles.containerItem}>
             <div className={styles.textContainer}>
-              <h3>welcome to our Tech World.</h3>
+              <h3>
+                welcome to our
+                <span className={styles.rotate}> Tech World.</span>
+              </h3>
               <p>
                 we are a team of developers who love to code. we are here to
                 help you to build your next project. and our goal is giving you
