@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "./image";
 
 const Card = ({ article }) => {
+  console.log("article", article);
+
   return (
     <Link href={`/article/${article.attributes.slug}`}>
       <a className="uk-link-reset">

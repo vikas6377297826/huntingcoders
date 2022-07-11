@@ -22,7 +22,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <Component {...pageProps} />
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
       </GlobalContext.Provider>
     </>
   );

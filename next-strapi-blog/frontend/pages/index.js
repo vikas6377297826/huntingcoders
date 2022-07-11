@@ -7,11 +7,22 @@ import Image from "next/image";
 import programerImager from "../public/programer.svg";
 
 const Home = ({ categories, homepage }) => {
+  const backgroundStyle = {
+    backgroundImage:
+      "url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    width: "100%",
+    height: "100vh",
+    position: "absolute",
+    top: 0,
+    zIndex: -1,
+  };
+
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
-      <div>
-        <h1>codeoflyf</h1>
+      <div style={backgroundStyle}>
         <div className={`${styles.container} ${styles.homeContainer}`}>
           <div className={styles.containerItem}>
             <div className={styles.textContainer}>

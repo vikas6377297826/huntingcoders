@@ -3,8 +3,14 @@ import Layout from "../components/layout";
 import { fetchAPI } from "../lib/api";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
+import Image from "next/image";
+import myImage from "../public/apple-touch-icon.png";
+import { getStrapiMedia } from "../lib/media";
+import Link from "next/link";
 
-const Work = ({ categories }) => {
+const Work = ({ categories, work }) => {
+  console.log("works", work);
+
   return (
     <>
       <Head>
@@ -16,21 +22,14 @@ const Work = ({ categories }) => {
           <h1>our work</h1>
           <div className={styles.container}>
             <div className={styles.containerItem}>
-              <div className={styles.item}>
-                <p>1</p>
-              </div>
-              <div className={styles.item}>
-                <p>1</p>
-              </div>
-              <div className={styles.item}>
-                <p>1</p>
-              </div>
-              <div className={styles.item}>
-                <p>1</p>
-              </div>
-              <div className={styles.item}>
-                <p>1</p>
-              </div>
+              {work.data.length > 0 &&
+                work.data.map((item) => (
+                  <Image
+                    src={getStrapiMedia(item.attributes.image)}
+                    width={200}
+                    height={200}
+                  />
+                ))}
             </div>
           </div>
         </div>
@@ -45,9 +44,12 @@ export async function getStaticProps() {
     fetchAPI("/categories", { populate: "*" }),
   ]);
 
+  const response = await fetchAPI("/works", { populate: "*" });
+
   return {
     props: {
       categories: categoriesRes.data,
+      work: response,
     },
     revalidate: 1,
   };

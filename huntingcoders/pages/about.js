@@ -10,7 +10,7 @@ const About = () => {
       },
       body: JSON.stringify({
         title: "My first post",
-        content: "This is my first post",
+        content: "This is my second post post",
       }),
     });
     res = await res.json();
